@@ -7,11 +7,13 @@ use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class UserController extends Controller
 {
     /**
      * @Route("/users", name="user_list")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function listAction()
     {
