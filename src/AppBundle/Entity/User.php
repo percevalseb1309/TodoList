@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Table("user")
  * @ORM\Entity
+ * @UniqueEntity("username")
  * @UniqueEntity("email")
  */
 class User implements UserInterface
@@ -38,6 +39,13 @@ class User implements UserInterface
      * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
      */
     private $email;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles;
 
     public function getId()
     {
@@ -79,9 +87,28 @@ class User implements UserInterface
         $this->email = $email;
     }
 
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return is_array($this->roles) ? $this->roles : array($this->roles);
     }
 
     public function eraseCredentials()
