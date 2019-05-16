@@ -1,0 +1,11 @@
+AppBundle\Entity\User:
+    admin:
+        username: Percevalseb
+        password: $2y$13$Y5stklLa3aHL0vZ1v8vgIObJdvm.dRRck87Lunz5BP15p4CNsz1Bu
+        email: admin@gmail.com
+        roles: ['ROLE_ADMIN']
+    user:
+        username: John-Doe
+        password: $2y$13$bgZrKW.muM/oqfs7vRD0OeT46/6oWroDlTVojW2yyQS4MYcajqwWW
+        email: user@gmail.com
+        roles: ['ROLE_USER']
