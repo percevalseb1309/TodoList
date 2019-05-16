@@ -32,6 +32,14 @@
 
                     <img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms" />
                 </div>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    {% set rolesArray = {'ROLE_ADMIN': 'Administrateur', 'ROLE_USER': 'Utlisateur'} %}
+                    <div id="welcome" class="pull-right">Bienvenue {{ app.user.username }}, vous avez le(s) rôle(s) :
+                        {% for role in app.user.roles %}
+                            {{ rolesArray[role] }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </nav>
 
