@@ -48,6 +48,7 @@ class UserController extends Controller
 
     /**
      * @Route("/users/{id}/edit", name="user_edit")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(User $user, Request $request)
     {
