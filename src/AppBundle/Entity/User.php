@@ -45,7 +45,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="roles", type="array")
      */
-    private $roles;
+    private $roles = [];
 
     public function getId()
     {
@@ -108,7 +108,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return is_array($this->roles) ? $this->roles : array($this->roles);
+        return $this->roles;
     }
 
     public function eraseCredentials()
