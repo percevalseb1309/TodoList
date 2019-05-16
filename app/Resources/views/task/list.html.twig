@@ -23,7 +23,9 @@
                         </button>
                     </form>
                     <form action="{{ path('task_delete', {'id' : task.id }) }}">
-                        {% if app.user == task.user %}<button class="btn btn-danger btn-sm pull-right">Supprimer</button>{% endif %}
+                        {% if app.user == task.user or ('ROLE_ADMIN' in app.user.roles and task.user is null) %}
+                            <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                        {% endif %}
                     </form>
                 </div>
             </div>
