@@ -10,8 +10,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Table("user")
  * @ORM\Entity
- * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity("username", message="Ce nom d'utilisateur existe déjà.")
+ * @UniqueEntity("email", message="Cet adresse email existe déjà.")
  */
 class User implements UserInterface
 {
@@ -53,7 +53,7 @@ class User implements UserInterface
      *     max=60,
      *     maxMessage="Votre adresse email ne peut pas contenir plus de {{ limit }} caractères."
      * )
-     * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
+     * @Assert\Email(message="Le format de l'adresse email n'est pas correcte.")
      */
     private $email;
 
@@ -61,6 +61,7 @@ class User implements UserInterface
      * @var array
      *
      * @ORM\Column(name="roles", type="array")
+     * @Assert\NotBlank(message="Vous devez cocher au moins un rôle.")
      */
     private $roles = [];
 

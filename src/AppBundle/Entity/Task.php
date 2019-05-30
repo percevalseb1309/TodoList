@@ -4,10 +4,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ORM\Table("task")
  * @ORM\Entity
- * @ORM\Table
+ * @UniqueEntity("title", message="Ce nom de tâche existe déjà.")
  */
 class Task
 {
@@ -24,7 +26,7 @@ class Task
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
      * @Assert\Length(
      *     min=2,
