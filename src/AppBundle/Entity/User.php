@@ -10,8 +10,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Table("user")
  * @ORM\Entity
- * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity("username", message="Ce nom d'utilisateur existe déjà.")
+ * @UniqueEntity("email", message="Cet adresse email existe déjà.")
  */
 class User implements UserInterface
 {
@@ -25,18 +25,35 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      * @Assert\NotBlank(message="Vous devez saisir un nom d'utilisateur.")
+     * @Assert\Length(
+     *     min=2,
+     *     max=25,
+     *     minMessage="Votre nom utilisateur doit comporter au moins {{ limit }} caractères.",
+     *     maxMessage="Votre nom utilisateur ne peut pas contenir plus de {{ limit }} caractères."
+     * )
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=64)
+     * @Assert\NotBlank(message="Vous devez saisir un mot de passe.")
+     * @Assert\Length(
+     *     min=2,
+     *     max=64,
+     *     minMessage="Votre mot de passe doit comporter au moins {{ limit }} caractères.",
+     *     maxMessage="Votre mot de passe ne peut pas contenir plus de {{ limit }} caractères."
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=60, unique=true)
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
-     * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
+     * @Assert\Length(
+     *     max=60,
+     *     maxMessage="Votre adresse email ne peut pas contenir plus de {{ limit }} caractères."
+     * )
+     * @Assert\Email(message="Le format de l'adresse email n'est pas correcte.")
      */
     private $email;
 
@@ -44,6 +61,7 @@ class User implements UserInterface
      * @var array
      *
      * @ORM\Column(name="roles", type="array")
+     * @Assert\NotBlank(message="Vous devez cocher au moins un rôle.")
      */
     private $roles = [];
 

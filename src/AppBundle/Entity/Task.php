@@ -4,10 +4,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ORM\Table("task")
  * @ORM\Entity
- * @ORM\Table
+ * @UniqueEntity("title", message="Ce nom de tâche existe déjà.")
  */
 class Task
 {
@@ -24,8 +26,14 @@ class Task
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
+     * @Assert\Length(
+     *     min=2,
+     *     max=255,
+     *     minMessage="Votre titre doit comporter au moins {{ limit }} caractères.",
+     *     maxMessage="Votre titre ne peut pas contenir plus de {{ limit }} caractères."
+     * )
      */
     private $title;
 
@@ -48,7 +56,7 @@ class Task
 
     public function __construct()
     {
-        $this->createdAt = new \Datetime();
+        $this->createdAt = new \Datetime('NOW', new \DateTimeZone('Europe/Paris'));
         $this->isDone = false;
     }
 
@@ -97,29 +105,6 @@ class Task
         $this->isDone = $flag;
     }
 
-    /**
-     * Set isDone
-     *
-     * @param boolean $isDone
-     *
-     * @return Task
-     */
-    public function setIsDone($isDone)
-    {
-        $this->isDone = $isDone;
-
-        return $this;
-    }
-
-    /**
-     * Get isDone
-     *
-     * @return boolean
-     */
-    public function getIsDone()
-    {
-        return $this->isDone;
-    }
 
     /**
      * Set user

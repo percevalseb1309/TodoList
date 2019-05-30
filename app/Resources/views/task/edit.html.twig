@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block header_title %}<h1>Modifier <strong>{{ task.title }}</strong></h1>{% endblock %}
+
 {% block body %}
     <div class="row">
         {{ form_start(form, {'action' : path('task_edit', { 'id' : task.id })}) }}
@@ -7,5 +9,7 @@
 
             <button type="submit" class="btn btn-success pull-right">Modifier</button>
         {{ form_end(form) }}
+
+        <a href="{{ path('task_list') }}" class="btn btn-primary">Retour à la liste des tâches</a>
     </div>
 {% endblock %}
