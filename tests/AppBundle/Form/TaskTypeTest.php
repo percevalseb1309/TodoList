@@ -7,7 +7,6 @@ use AppBundle\Form\TaskType;
 use AppBundle\Entity\Task;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-
 class TaskTypeTest extends TypeTestCase
 {
     public function testSubmitValidData()
