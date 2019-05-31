@@ -7,6 +7,7 @@ __OpenClassrooms project :__ Improve an existing application
 ## Summary
 
 *   [Assignment](#assignment)
+*   [Installation](#installation)
 
 ## Assignment
 
@@ -87,3 +88,18 @@ Au terme de votre travail effectué sur l’application il vous est demandé de 
 Bien évidemment, il est fortement conseillé que vous utilisiez des outils vous permettant d’avoir des métriques pour appuyer vos propos.
 
 Concernant l’audit de performances, l’usage de Blackfire est obligatoire, ce dernier vous permettra de produire des analyses précises et adaptées aux évolutions futures du projet.
+
+## Installation
+
+1.  Clone or download this repository in your project folder
+2.  Install all the project dependencies
+```
+$ composer install
+```
+3.  In the folder app/config, rename the file parameters.yml.dist by parameters.yml and fill it with your database's credentials
+4.  Create the database, the schema, and load data fixtures
+```
+$ php bin/console doctrine:database:create
+$ php bin/console doctrine:schema:update  --force
+$ php bin/console hautelook:fixtures:load
+```
