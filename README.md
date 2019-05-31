@@ -1,6 +1,5 @@
-ToDoList
-========
+# ToDoList [![Codacy Badge](https://api.codacy.com/project/badge/Grade/76d72a296a3845aaa7c1b9d0863be8d8)](https://www.codacy.com/app/percevalseb1309/TodoList?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=percevalseb1309/TodoList&amp;utm_campaign=Badge_Grade)
 
-Base du projet #8 : Améliorez un projet existant
+__OpenClassrooms project :__ Improve an existing application
 
-https://openclassrooms.com/projects/ameliorer-un-projet-existant-1
+![Notebook](web/img/todolist_content.jpg)
