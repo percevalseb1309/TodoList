@@ -8,6 +8,7 @@ __OpenClassrooms project :__ Improve an existing application
 
 *   [Assignment](#assignment)
 *   [Installation](#installation)
+*   [Usage](#usage)
 
 ## Assignment
 
@@ -102,4 +103,17 @@ $ composer install
 $ php bin/console doctrine:database:create
 $ php bin/console doctrine:schema:update  --force
 $ php bin/console hautelook:fixtures:load
+```
+
+## Usage
+
+Here are the credentials of a user to manage the tasks
+```
+username: John-Doe
+password: azerty
+```
+Here are the credentials of an administrator to also manage the accounts
+```
+username: Percevalseb
+password: azerty
 ```
