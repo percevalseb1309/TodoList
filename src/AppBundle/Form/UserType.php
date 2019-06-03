@@ -1,4 +1,7 @@
 <?php
+/**
+ * @contributor Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace AppBundle\Form;
 
@@ -10,8 +13,16 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
+/**
+ * Class UserType
+ * @package AppBundle\Form
+ */
 class UserType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder

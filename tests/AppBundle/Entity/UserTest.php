@@ -1,13 +1,22 @@
 <?php
-
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Entity;
 
 use AppBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class UserTest
+ * @package Tests\AppBundle\Entity
+ */
 class UserTest extends TestCase
 {
+    /**
+     * @var User
+     */
     private $user;
 
     protected function setUp()

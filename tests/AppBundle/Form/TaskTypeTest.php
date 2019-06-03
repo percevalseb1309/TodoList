@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Form;
 
@@ -7,6 +9,10 @@ use AppBundle\Form\TaskType;
 use AppBundle\Entity\Task;
 use Symfony\Component\Form\Test\TypeTestCase;
 
+/**
+ * Class TaskTypeTest
+ * @package Tests\AppBundle\Form
+ */
 class TaskTypeTest extends TypeTestCase
 {
     public function testSubmitValidData()

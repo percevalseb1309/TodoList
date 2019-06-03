@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Entity;
 
@@ -7,8 +9,15 @@ use AppBundle\Entity\Task;
 use AppBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class TaskTest
+ * @package Tests\AppBundle\Entity
+ */
 class TaskTest extends TestCase
 {
+    /**
+     * @var Task
+     */
     private $task;
 
     protected function setUp()

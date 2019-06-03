@@ -1,14 +1,32 @@
 <?php
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Controller;
 
 use Symfony\Component\HTTPFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class UserControllerTest
+ * @package Tests\AppBundle\Controller
+ */
 class UserControllerTest extends WebTestCase
 {
+    /**
+     * @var null
+     */
     private $client = null;
+
+    /**
+     * @var string
+     */
     private $usernameCreated = 'zetta86';
+
+    /**
+     * @var string
+     */
     private $usernameUpdated = 'zora.steuber';
 
     protected function setUp()

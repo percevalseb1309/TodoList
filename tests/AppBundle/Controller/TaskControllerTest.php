@@ -1,17 +1,35 @@
 <?php
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Controller;
 
 use Symfony\Component\HTTPFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class TaskControllerTest
+ * @package Tests\AppBundle\Controller
+ */
 class TaskControllerTest extends WebTestCase
 {
+    /**
+     * @var null
+     */
     private $client = null;
+    /**
+     * @var string
+     */
     private $username = 'John-Doe';
+    /**
+     * @var string
+     */
     private $titleCreated = 'Tâche lambda';
+    /**
+     * @var string
+     */
     private $titleUpdated = 'Tâche bêta';
-
 
     protected function setUp()
     {

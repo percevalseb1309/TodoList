@@ -1,13 +1,26 @@
 <?php
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Controller;
 
 use Symfony\Component\HTTPFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class SecurityControllerTest
+ * @package Tests\AppBundle\Controller
+ */
 class SecurityControllerTest extends WebTestCase
 {
+    /**
+     * @var null
+     */
     private $client = null;
+    /**
+     * @var null
+     */
     private $crawler = null;
 
     protected function setUp()
