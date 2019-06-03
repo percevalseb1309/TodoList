@@ -2,13 +2,21 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue with the owner of this repository before making a change.
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
-
 ## Pull Request Process
 
-1. Update the README.md with details of changes to the interface, this includes new environment variables, useful file locations and container parameters.
-2. You may merge the Pull Request in once you have permission from the owner of this repository.
+*   Create a personal fork of the project on Github and clone it on your local machine.
+*   Follow README.md instructions to initialize the project.
+*   Create a new branch to work on.
+*   Implement your feature or fix a bug, comment your code.
+*   Write or adapt tests as needed.
+*   Add or change the documentation as needed.
+*   Increase the version numbers in composer.json file to the new version that this Pull Request would represent. The versioning scheme I use is [SemVer](http://semver.org/).
+*   Push your branch to your fork on Github.
+*   From your fork open a pull request in the develop branch.
+*   You may merge the Pull Request in once you have permission from the owner of this repository.
 
-## Code of Conduct
+## Quality process and the rules to follow
 
-In the interest of fostering an open and welcoming environment, as a contributor and maintainer pledge to making participation in my project a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, religion or identity and sexual orientation.
+Read the following documents:
+*   [Coding Standards](https://symfony.com/doc/3.2/contributing/code/standards.html)
+*   [Conventions](https://symfony.com/doc/3.2/contributing/code/conventions.html)
