@@ -2,6 +2,17 @@
     "name": "saro0h/to-do-list",
     "license": "proprietary",
     "type": "project",
+    "authors": [
+        {
+            "name": "Sarah KHALIL",
+            "role": "creator"
+        },
+        {
+            "name": "Sébastien Rochat",
+            "email": "percevalseb@gmail.com",
+            "role": "contributor"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/"
