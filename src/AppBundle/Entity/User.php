@@ -1,8 +1,12 @@
 <?php
+/**
+ * @contributor Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Intl\Tests\Data\Util\RingBufferTest;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -12,6 +16,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity
  * @UniqueEntity("username", message="Ce nom d'utilisateur existe déjà.")
  * @UniqueEntity("email", message="Cet adresse email existe déjà.")
+ *
+ * Class User
+ * @package AppBundle\Entity
  */
 class User implements UserInterface
 {
@@ -19,6 +26,8 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @var int
      */
     private $id;
 
@@ -31,6 +40,8 @@ class User implements UserInterface
      *     minMessage="Votre nom utilisateur doit comporter au moins {{ limit }} caractères.",
      *     maxMessage="Votre nom utilisateur ne peut pas contenir plus de {{ limit }} caractères."
      * )
+     *
+     * @var string
      */
     private $username;
 
@@ -43,6 +54,8 @@ class User implements UserInterface
      *     minMessage="Votre mot de passe doit comporter au moins {{ limit }} caractères.",
      *     maxMessage="Votre mot de passe ne peut pas contenir plus de {{ limit }} caractères."
      * )
+     *
+     * @var string
      */
     private $password;
 
@@ -54,63 +67,86 @@ class User implements UserInterface
      *     maxMessage="Votre adresse email ne peut pas contenir plus de {{ limit }} caractères."
      * )
      * @Assert\Email(message="Le format de l'adresse email n'est pas correcte.")
+     *
+     * @var string
      */
     private $email;
 
     /**
-     * @var array
-     *
      * @ORM\Column(name="roles", type="array")
      * @Assert\NotBlank(message="Vous devez cocher au moins un rôle.")
+     *
+     * @var array
      */
     private $roles = [];
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getUsername()
     {
         return $this->username;
     }
 
+    /**
+     * @param $username
+     */
     public function setUsername($username)
     {
         $this->username = $username;
     }
 
+    /**
+     * @return string|null
+     */
     public function getSalt()
     {
         return null;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @param $password
+     */
     public function setPassword($password)
     {
         $this->password = $password;
     }
 
+    /**
+     * @return mixed
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * @param $email
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
 
     /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return User
+     * @param $roles
+     * @return $this
      */
     public function setRoles($roles)
     {
@@ -120,8 +156,6 @@ class User implements UserInterface
     }
 
     /**
-     * Get roles
-     *
      * @return array
      */
     public function getRoles()

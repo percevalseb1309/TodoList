@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author Sébastien Rochat <percevalseb@gmail.com>
+ */
 
 namespace Tests\AppBundle\Form;
 
@@ -12,10 +14,17 @@ use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * Class UserTypeTest
+ * @package Tests\AppBundle\Form
+ */
 class UserTypeTest extends TypeTestCase
 {
     private $validator;
 
+    /**
+     * @return array
+     */
     protected function getExtensions()
     {
         $this->validator = $this->createMock(ValidatorInterface::class);
