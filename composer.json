@@ -2,6 +2,13 @@
     "name": "saro0h/to-do-list",
     "license": "proprietary",
     "type": "project",
+    "authors": [
+        {
+            "name": "Sébastien Rochat",
+            "email": "percevalseb@gmail.com",
+            "role": "contributor"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/"
