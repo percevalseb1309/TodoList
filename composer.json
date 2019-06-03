@@ -4,6 +4,10 @@
     "type": "project",
     "authors": [
         {
+            "name": "Sarah KHALIL",
+            "role": "creator"
+        },
+        {
             "name": "Sébastien Rochat",
             "email": "percevalseb@gmail.com",
             "role": "contributor"
