@@ -89,7 +89,7 @@ class TaskController extends Controller
 
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle"
+     * @Route("/tasks/{id}/toggle", name="task_toggle")
      *
      * @param Task $task
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
