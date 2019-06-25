@@ -10,6 +10,7 @@ use AppBundle\Form\TaskType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Class TaskController
@@ -118,6 +119,15 @@ class TaskController extends Controller
      */
     public function deleteTaskAction(Task $task)
     {
+        if ($this->getUser() !== $task->getUser()) {
+            if ($this->isGranted('ROLE_ADMIN') === FALSE) {
+                throw new AccessDeniedException("En tant qu'utilisateur, vous n'êtes pas autorisé à supprimer cette ressource !");
+            }
+            if ($this->isGranted('ROLE_ADMIN') === TRUE && $task->getUser() !== NULL) {
+                throw new AccessDeniedException("En tant qu'administrateur, vous n'êtes pas autorisé à supprimer cette ressource !");
+            }
+        }
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($task);
         $em->flush();
